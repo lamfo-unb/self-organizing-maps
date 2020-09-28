@@ -6,7 +6,7 @@ path_data = "data/raw/start-business.xlsx"
 dados = pd.read_excel(path_data)
 dados.head()
 
-# Selecionano colunas
+# Selecionando colunas
 colunas = pd.Series(dados.columns)
 colunas = colunas[~colunas.str.contains("Score")].to_list()
 colunas.append("Score-Starting a business")
@@ -22,7 +22,7 @@ new_columns = [
 dados.columns = new_columns
 dados.head()
 
-# Restirando pais com diferencial para cidade
+# Retirando pais com diferencial para cidade
 dados = dados.query("~country_code.str.contains('_')")
 
 # Definido grupos paises por nível de facilidade de abrir negócios
